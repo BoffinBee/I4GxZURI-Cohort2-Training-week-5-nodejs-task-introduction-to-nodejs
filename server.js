@@ -2,20 +2,37 @@ const http = require('http')
 const path = require('path')
 const fs = require('fs')
 
-const server = http.createServer(function (req, res) {
-    const notFound = path.join(__dirname, 'public', 'notFound.html')
-    let filePath = notFound
-    if (req.url === '/' || req.url == '/index.html') {
-        filePath = path.join(__dirname, 'public', 'index.html')
-    } else if (req.url === '/contact.html') {
-        filePath = path.join(__dirname, 'public', 'contact.html')
-    } else if (req.url === '/about.html') {
-        filePath = path.join(__dirname, 'public', 'about.html')
+const getContentType = function (filePath) {
+    let extn = path.extname(filePath)
+    if (extn === '.js') {
+        return 'text/javascript'
+    } else if (extn === '.css') {
+        return 'text/css'
+    } else if (extn === '.html') {
+        return 'text/html'
+    } else if (extn === '.htm') {
+        return 'text/htm'
+    } else if (extn === '.jpg') {
+        return 'image/jpg'
+    } else if (extn === '.png') {
+        return 'image/png'
+    } else if (extn === '.jpeg') {
+        return 'image/jpeg'
+    } else if (extn === '.ico') {
+        return 'image/x-icon'
+    } else if (extn === '.svg') {
+        return 'image/svg+xml'
     }
+}
 
-    fs.readFile(filePath, 'utf8', function (err, data) {
+const server = http.createServer(function (req, res) {
+    // const notFound = path.join(__dirname, 'public', 'notFound.html')
+    let filePath = path.join(__dirname, 'public', req.url === '/' ? 'index.html' : req.url)
+    let contentType = getContentType(filePath)
+
+    fs.readFile(filePath, function (err, data) {
         if (err) throw err
-        res.writeHead(200, {'content-type': 'text/html'})
+        res.writeHead(200, {'content-type': contentType})
         res.end(data)
     })
 })

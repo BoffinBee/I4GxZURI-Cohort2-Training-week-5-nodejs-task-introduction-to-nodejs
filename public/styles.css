@@ -1,5 +1,86 @@
 * {
-    /* margin: 0;
-    padding: 0; */
-    all: unset;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-size: 1.6em;
+    background-color: #efefef;
+    min-width: 400px;
+}
+
+.hidden {
+    display: none;
+}
+
+nav {
+    max-height: 5rem;
+}
+
+nav ol li, footer ul li, .contact--items {
+    list-style: none;
+}
+
+
+header, .logo, .nav--items {
+    display: flex;
+}
+
+header, footer {
+    background-color: rgb(207, 198, 185);
+    justify-content: space-between;
+    padding: 4vh 2vw;
+}
+
+ol.nav--items {
+    flex-direction: column;
+}
+
+.nav--items li {
+    padding-bottom: 0.375em;
+}
+
+.nav--active {
+    text-decoration: underline 2px;
+}
+
+main {
+    padding: 0 3em;
+}
+
+.intro {
+    text-align: center;
+    margin-top: 2em;
+    line-height: 1.7;
+}
+.intro img {
+    height: 20rem;
+    border-radius: 50%;
+    margin-bottom: 2em;
+}
+
+ul.nav--items {
+    padding: 0 2em;
+    justify-content: space-evenly;
+}
+
+footer {
+    margin-top: 2em;
+    max-height: 10em;
+}
+
+@media only screen and (min-width: 650px) {
+    ol.nav--items {
+        flex-direction: row;
+    }
+    .nav--items li {
+        padding-left: 1.5em;
+    }
+  }
