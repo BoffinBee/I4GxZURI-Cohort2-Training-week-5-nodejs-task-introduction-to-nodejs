@@ -26,7 +26,6 @@ const getContentType = function (filePath) {
 }
 
 const server = http.createServer(function (req, res) {
-    // const notFound = path.join(__dirname, 'public', 'notFound.html')
     let filePath = path.join(__dirname, 'public', req.url === '/' ? 'index.html' : req.url)
     let contentType = getContentType(filePath)
 

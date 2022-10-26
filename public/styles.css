@@ -76,6 +76,11 @@ footer {
     max-height: 10em;
 }
 
+.logo img {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+  }
+
 @media only screen and (min-width: 650px) {
     ol.nav--items {
         flex-direction: row;
