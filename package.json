@@ -1,0 +1,23 @@
+{
+  "name": "week-5-nodejs-task-introduction-to-nodejs",
+  "version": "1.0.0",
+  "description": "creating a simple server to render html pages",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BoffinBee/I4GxZURI-Cohort2-Training-week-5-nodejs-task-introduction-to-nodejs.git"
+  },
+  "author": "Abolarinwa Quadri",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BoffinBee/I4GxZURI-Cohort2-Training-week-5-nodejs-task-introduction-to-nodejs/issues"
+  },
+  "homepage": "https://github.com/BoffinBee/I4GxZURI-Cohort2-Training-week-5-nodejs-task-introduction-to-nodejs#readme",
+  "dependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
