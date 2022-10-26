@@ -25,4 +25,4 @@ const ip_address = '127.0.0.1'
 
 server.listen(port, ip_address)
 
-console.log(`Server is up and running on ${ip_address}:${port}`)
+console.log(`Server is up and running on http://${ip_address}:${port}`)
