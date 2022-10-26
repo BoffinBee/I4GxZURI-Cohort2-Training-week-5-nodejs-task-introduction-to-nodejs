@@ -22,17 +22,34 @@ const getContentType = function (filePath) {
         return 'image/x-icon'
     } else if (extn === '.svg') {
         return 'image/svg+xml'
+    } else {
+        return 'text/plain'
     }
 }
 
 const server = http.createServer(function (req, res) {
-    let filePath = path.join(__dirname, 'public', req.url === '/' ? 'index.html' : req.url)
-    let contentType = getContentType(filePath)
+    const filePath = path.join(__dirname, 'public', req.url === '/' ? 'index.html' : req.url)
+    const contentType = getContentType(filePath)
+    const notFoundPage = path.join(__dirname, 'public', 'notFound.html')
+
 
     fs.readFile(filePath, function (err, data) {
-        if (err) throw err
-        res.writeHead(200, {'content-type': contentType})
-        res.end(data)
+        if (err) {
+            if (err.code == 'ENOENT') {
+                fs.readFile(notFoundPage, function (err, content) {
+                    res.writeHead(200, {'content-type': contentType})
+                    res.end(content)
+                })
+            } else {
+                res.writeHead(500)
+                res.end("Server Error!")
+            }
+        }
+
+        if (!err) {
+            res.writeHead(200, {'content-type': contentType})
+            res.end(data)
+        }
     })
 })
 

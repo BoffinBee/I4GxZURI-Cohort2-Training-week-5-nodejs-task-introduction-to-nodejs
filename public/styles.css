@@ -76,7 +76,7 @@ footer {
     max-height: 10em;
 }
 
-.logo img {
+#mirror-portrait {
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
   }
